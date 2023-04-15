@@ -23,6 +23,18 @@ pipeline {
                 sh 'mvn surefire-report:report'
                 echo '<------------- Unit Testing stopped  --------------->'
             }
-        } 
+        }
+	stage ("Sonar Analysis") {
+            environment {
+               scannerHome = tool 'sonarvalaxy-scanner'
+            }
+            steps {
+                echo '<--------------- Sonar Analysis started  --------------->'
+                withSonarQubeEnv('sonarvalaxy') {
+                    sh "${scannerHome}/bin/sonar-scanner"
+                }
+                echo '<--------------- Sonar Analysis stopped  --------------->'
+            }
+        }
     }
  }
