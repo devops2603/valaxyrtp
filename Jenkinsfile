@@ -24,7 +24,6 @@ pipeline {
                 echo '<------------- Unit Testing stopped  --------------->'
             }
         }
-#####Sonar Scanner Step#####
 
 	stage ("Sonar Analysis") {
             environment {
