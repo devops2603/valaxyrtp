@@ -1,4 +1,4 @@
-def imageName = 'stalinrtp.jfrog.io/valaxy-docker/valaxy-rtp'
+def imageName = 'valaxyrtp.jfrog.io/valaxy-docker/valaxy-rtp'
 def registry  = 'https://valaxyrtp.jfrog.io'
 def version   = '1.0.2'
 def app
