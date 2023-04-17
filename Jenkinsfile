@@ -91,8 +91,7 @@ pipeline {
         }
          stage (" Docker Publish "){
             steps {
-                script {
-
+               
                    echo '<--------------- Docker Publish Started --------------->'
 		         artServer = Artifactory.newServer(url: registry, credentialsId: 'dockercredentialid')
                          artDocker = Artifactory.docker(server: artServer)
@@ -100,7 +99,6 @@ pipeline {
                     }
 
                    echo '<--------------- Docker Publish Ended --------------->'
-                }
             }
     }
  }
