@@ -97,10 +97,11 @@ pipeline {
 		         artServer = Artifactory.newServer(url: 'https://valaxyrtp.jfrog.io', credentialsId: 'dockercredentialid')
                          artDocker = Artifactory.docker(server: artServer)
                          artDocker.push("valaxyrtp.jfrog.io/valaxy-docker/valaxy-rtp":"1.0.2", docker-docker-local)
-                    }
+                    
                    echo '<--------------- Docker Publish Ended --------------->'
-                  }
-        }
+                      }
+		  }
+	     }
    }
  }
 
