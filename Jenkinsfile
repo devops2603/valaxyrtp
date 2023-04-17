@@ -89,19 +89,17 @@ pipeline {
                 }
             }
         }
-         stage (" Docker Publish "){
+	stage (" Docker Publish "){
             steps {
-               script {
-               
+                script {
                    echo '<--------------- Docker Publish Started --------------->'
-		         artServer = Artifactory.newServer(url: 'https://valaxyrtp.jfrog.io', credentialsId: 'dockercredentialid')
-                         artDocker = Artifactory.docker(server: artServer)
-                         artDocker.push("valaxyrtp.jfrog.io/valaxy-docker/valaxy-rtp":"1.0.2", docker-docker-local)
-                    
+                    docker.withRegistry(registry, 'dockercredentialid'){
+                        app.push()
+                    }
                    echo '<--------------- Docker Publish Ended --------------->'
-                      }
-		  }
-	     }
+                }
+            }
+        }
    }
  }
 
