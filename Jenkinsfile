@@ -74,7 +74,7 @@ pipeline {
                               "files": [
                                 {
                                   "pattern": "jarstaging/(*)",
-                                  "target": "valaxy-rtp-maven-libs-release/{1}",
+                                  "target": "valaxy-rtp-maven-lib-libs-release/{1}",
                                   "flat": "false",
                                   "props" : "${properties}",
                                   "exclusions": [ "*.sha1", "*.md5"]
