@@ -93,8 +93,9 @@ pipeline {
             steps {
                 script {
                    echo '<--------------- Docker Publish Started --------------->'
-                    docker.withRegistry(registry, 'dockercredentialid'){
-                        app.push()
+		         artServer = Artifactory.newServer(url: registry, credentialsId: 'dockercredentialid')
+                         artDocker = Artifactory.docker(server: artServer)
+                         artDocker.push(valaxyrtp.jfrog.io/valaxy-docker/valaxy-rtp:1.0.2, docker-docker-local)
                     }
                    echo '<--------------- Docker Publish Ended --------------->'
                 }
