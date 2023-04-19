@@ -100,6 +100,16 @@ pipeline {
                 }
             }
         }
+	 stage(" Deploy ") {
+          steps {
+            script {
+               echo '<--------------- Deploy Started --------------->'
+               sh './deploy.sh'
+               echo '<--------------- Deploy Ends --------------->'
+            }
+          }
+        }
+
    }
  }
 
